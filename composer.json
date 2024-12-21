@@ -33,6 +33,10 @@
     },
     "scripts": {
         "post-autoload-dump": [
+            "cp -n .env.example .env || true",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan key:generate --ansi",
+            "@php artisan migrate --graceful --ansi",
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
@@ -41,11 +45,6 @@
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi",
-            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
-            "@php artisan migrate --graceful --ansi"
         ],
         "dev": [
             "Composer\\Config::disableProcessTimeout",
