@@ -9,11 +9,12 @@ use ApiPlatform\Metadata\Put;
 use App\State\ArticlePublishProcessor;
 use App\State\ArticleRandomProvider;
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Component\PropertyInfo\Type;
 
 #[Get(uriTemplate: '/articles/random', provider: ArticleRandomProvider::class)]
 #[Put(uriTemplate: '/articles/{id}/publication', deserialize: false, processor: ArticlePublishProcessor::class)]
 #[ApiResource]
-#[ApiProperty(schema: ['type' => 'boolean'], property: 'published')]
+#[ApiProperty(builtinTypes: [new Type('bool')], schema: ['type' => 'boolean'], property: 'published')]
 class Article extends Model
 {
     //
