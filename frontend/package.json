@@ -8,18 +8,21 @@
     "dev": "vite --port=3001",
     "build": "vite build",
     "serve": "vite preview",
-    "start": "vite"
+    "start": "vite",
+    "api:gen": "openapi-typescript openapi.json -o src/lib/api/schema.d.ts"
   },
   "devDependencies": {
+    "@tanstack/router-plugin": "^1.91.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@tanstack/router-plugin": "^1.91.1",
     "@vitejs/plugin-react": "^4.3.2",
+    "openapi-typescript": "^7.4.4",
     "vite": "^6.0.3"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.91.3",
     "@tanstack/router-devtools": "^1.91.3",
+    "openapi-fetch": "^0.13.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   }

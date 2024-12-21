@@ -57,6 +57,9 @@
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:meta",
             "@php artisan ide-helper:models --nowrite"
+        ],
+        "api:export": [
+            "curl http://localhost:8000/api/docs.jsonopenapi?spec_version=3 | jq . > frontend/openapi.json"
         ]
     },
     "extra": {
