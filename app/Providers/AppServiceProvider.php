@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use ApiPlatform\State\ProviderInterface;
+use App\State\ArticleRandomProvider;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->tag([ArticleRandomProvider::class], ProviderInterface::class);
     }
 
     /**
